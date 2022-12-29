@@ -1,0 +1,13 @@
+{
+  "name": "next-mf",
+  "version": "1.0.0",
+  "author": "GlebAO",
+  "license": "MIT",
+  "private": true,
+  "workspaces": {
+    "packages": [
+      "./app2",
+      "./app3"
+    ]
+  }
+}
