@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Link from 'next/link';
 const Header = (await import('app2/Header')).default;
 
 export default function Home() {
@@ -10,8 +11,14 @@ export default function Home() {
         <meta name='viewport' content='width=device-width, initial-scale=1' />
       </Head>
       <main>
+        <h1>App 3 home page</h1>
+        <hr />
+        <h3>Component imported from App2</h3>
         <Header />
-        <div>App 3 home page</div>
+        <hr />
+        <h3>Index page imported from App2</h3>
+        <Link href='/indexOfApp2'>App 2 homepage</Link>
+        <hr />
       </main>
     </>
   );

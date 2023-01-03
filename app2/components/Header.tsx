@@ -10,7 +10,7 @@ const Header = () => {
         padding: '1em',
       }}
     >
-      Header
+      Header hosted in APP 2
     </div>
   );
 };

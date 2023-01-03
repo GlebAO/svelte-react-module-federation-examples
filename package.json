@@ -4,10 +4,14 @@
   "author": "GlebAO",
   "license": "MIT",
   "private": true,
-  "workspaces": {
-    "packages": [
-      "./app2",
-      "./app3"
-    ]
+  "scripts": {
+    "start": "concurrently \"cd app2; yarn dev\" \"cd app3; yarn dev\""
+  },
+  "workspaces": [
+    "./app2",
+    "./app3"
+  ],
+  "dependencies": {
+    "concurrently": "^7.6.0"
   }
 }

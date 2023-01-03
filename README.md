@@ -1,12 +1,26 @@
-# Next.js module federation apps
+# Webpack module federation | Next.js | SSR
+---
+## About
+This repo contains two apps built with **Next.js 12.3.4** and **React 17.0.2**.
+
+With help of [Webpack 5 Module Federation](https://www.npmjs.com/package/module-federation-plugin) plugin which used in package [Module Federation For Next.js](https://www.npmjs.com/package/@module-federation/nextjs-mf) **App2** exposes component Header and all pages. **App3** takes App 2's remote container and we can import shared modules from App 2.
+
+In App 3 homepage you can see example of importing **Header** component from App 2. App 3 has route /indexOfApp2 and file pages/indexOfApp2.tsx in which we import the whole page of App 2.
 
 ## Getting Started
-- run `yarn` - Install all the dependencies to run the apps in parallel.
-- cd `cd app2` and run `yarn dev`
-- cd `cd app3` and run `yarn dev`
-
-We have two next.js applications 
-- `app2` - port 3002
-- `app3` - port 3003
-
-App3 use Header component from App2
+- Install dependencies and run the App 2
+```
+cd app2
+yarn 
+yarn dev
+```
+- Install dependencies and run the App 3
+```
+cd ..
+cd app3
+yarn 
+yarn dev
+```
+- Open App 3 [http://localhost:3003/](http://localhost:3003/)
+- App 2 [http://localhost:3002/](http://localhost:3002/)
+- RemoteEntry of App 2 [http://localhost:3002/_next/static/chunks/remoteEntry.js](http://localhost:3002/_next/static/chunks/remoteEntry.js) we can see what exposes App 2 in moduleMap
