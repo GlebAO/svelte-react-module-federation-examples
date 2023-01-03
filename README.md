@@ -1,4 +1,4 @@
-# Webpack module federation | Next.js | SSR
+# Example of implementing Webpack module federation | Next.js | SSR
 ---
 ## About
 This repo contains two apps built with **Next.js 12.3.4** and **React 17.0.2**.
