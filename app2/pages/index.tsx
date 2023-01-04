@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import Header from '../components/Header';
+import Link from 'next/link';
 
 export default function Home() {
   return (
@@ -12,6 +13,8 @@ export default function Home() {
       <main>
         <Header />
         <div>App 2 home page</div>
+        <hr/>
+        <Link href='/info'>Info</Link>
       </main>
     </>
   );

@@ -11,7 +11,7 @@ export default function Home() {
       </Head>
       <main>
         <Header />
-        <div>Info page of App2</div>
+        <h1>Info page (App2)</h1>
       </main>
     </>
   );

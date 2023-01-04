@@ -1,6 +1,12 @@
 import Head from 'next/head';
 import Link from 'next/link';
-const Header = (await import('app2/Header')).default;
+import dynamic from 'next/dynamic';
+
+// const Header = (await import('app2/Header')).default;
+
+const Header = dynamic(() => import('app2/Header'), {
+  ssr: true,
+});
 
 export default function Home() {
   return (

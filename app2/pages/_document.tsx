@@ -1,25 +1,24 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document';
 import React from 'react';
-import {
-  revalidate,
-  FlushedChunks,
-  flushChunks,
-} from '@module-federation/nextjs-mf/utils';
+import { revalidate } from '@module-federation/nextjs-mf/utils';
 
 class MyDocument extends Document {
   static async getInitialProps(ctx) {
-    // @TODO add revelidation
-    const chunks = await flushChunks();
     const initialProps = await Document.getInitialProps(ctx);
-    return { ...initialProps, chunks };
+
+    ctx?.res?.on('finish', () => {
+      revalidate().then((shouldUpdate) => {
+        console.log('finished sending response', shouldUpdate);
+      });
+    });
+
+    return initialProps;
   }
 
   render() {
     return (
       <Html>
-        <Head>
-          <FlushedChunks chunks={this.props.chunks} />
-        </Head>
+        <Head></Head>
 
         <body>
           <Main />
