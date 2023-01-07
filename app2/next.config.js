@@ -1,4 +1,5 @@
 /** @type {import('next').NextConfig} */
+
 const NextFederationPlugin = require('@module-federation/nextjs-mf');
 
 const nextConfig = {
@@ -6,7 +7,7 @@ const nextConfig = {
     const { isServer } = options;
 
     Object.assign(config.experiments, { topLevelAwait: true });
-
+    // config.infrastructureLogging = { debug: /PackFileCache/ }
     config.plugins.push(
       new NextFederationPlugin({
         name: 'app2',

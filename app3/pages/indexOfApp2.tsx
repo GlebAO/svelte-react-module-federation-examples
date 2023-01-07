@@ -1,10 +1,18 @@
+import { NextPage, NextPageContext } from 'next';
 import dynamic from 'next/dynamic';
 // const InfoPage = (await import('app2/pages/index')).default;
 
-const InfoPage = dynamic(() => import('app2/pages/index'), {
-  ssr: true,
-});
+const InfoPage = dynamic(() =>
+  import('app2/pages/index'),
+) as NextPage;
 
-const Info = InfoPage;
-Info.getInitialProps = InfoPage.getInitialProps;
-export default Info;
+// InfoPage.getInitialProps = async (ctx: NextPageContext) => {
+//   const getInitialProps = (await InfoPage)?.getInitialProps;
+//   console.log('getInitialProps', getInitialProps)
+//   if (getInitialProps) {
+//     return getInitialProps(ctx);
+//   }
+//   return {};
+// };
+
+export default InfoPage;

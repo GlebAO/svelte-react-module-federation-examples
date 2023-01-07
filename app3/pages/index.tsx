@@ -4,9 +4,12 @@ import dynamic from 'next/dynamic';
 
 // const Header = (await import('app2/Header')).default;
 
-const Header = dynamic(() => import('app2/Header'), {
-  ssr: true,
-});
+const Header = dynamic(
+  () => import('app2/Header').then(({ Header }) => Header),
+  {
+    ssr: true,
+  },
+);
 
 export default function Home() {
   return (
