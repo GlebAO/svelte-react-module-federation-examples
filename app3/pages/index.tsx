@@ -5,6 +5,7 @@ import dynamic from 'next/dynamic';
 // const Header = (await import('app2/Header')).default;
 
 const Header = dynamic(
+  // @ts-ignore @TODO try to use @module-federation/typescript
   () => import('app2/Header').then(({ Header }) => Header),
   {
     ssr: true,

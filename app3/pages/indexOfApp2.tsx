@@ -2,8 +2,10 @@ import { NextPage, NextPageContext } from 'next';
 import dynamic from 'next/dynamic';
 // const InfoPage = (await import('app2/pages/index')).default;
 
-const InfoPage = dynamic(() =>
-  import('app2/pages/index'),
+const InfoPage = dynamic(
+  () =>
+    // @ts-ignore @TODO use @module-federation/typescript
+    import('app2/pages/index'),
 ) as NextPage;
 
 // InfoPage.getInitialProps = async (ctx: NextPageContext) => {
