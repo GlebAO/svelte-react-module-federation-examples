@@ -4,7 +4,7 @@ import dynamic from 'next/dynamic';
 
 const InfoPage = dynamic(
   () =>
-    // @ts-ignore @TODO use @module-federation/typescript
+    // @TODO use @module-federation/typescript
     import('app2/pages/index'),
 ) as NextPage;
 
