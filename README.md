@@ -1,4 +1,4 @@
-# Examples of implementing microfrontends with module federation
+# Examples of implementing microfrontends with Module Federation (Webpack, Vite) with libraries: Svelte, React, Next.js
 ---
 1. app1 - Svelte 
 2. app2, app3 - Next.js
