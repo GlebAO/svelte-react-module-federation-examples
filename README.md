@@ -4,7 +4,7 @@
 2. app2, app3 - Next.js
 3. app4 - React
 ---
-## 1. Importing components from React + Webpack to Svelte + Vite App
+## 1. Importing components from App4(React + Webpack) to App1(Svelte + Vite)
 App1 is host app. It takes remote container from app4. You can see configuration in `app1/vite.config.js`
 App4 is remote app for App1. App4 exposes Badge component. Configuration of Webpack Module Federation - `app4/webpack.config.js` 
 
