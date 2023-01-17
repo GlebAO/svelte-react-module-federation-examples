@@ -9,7 +9,7 @@
   import { onMount, onDestroy, afterUpdate } from 'svelte';
 
   export let dynamicImportPromise: Promise<() => () => ReactWrapperProps>;
-  export let props: undefined | Record<string, string> = undefined;
+  export let props: undefined | any = undefined;
 
   let container: HTMLElement;
   let reactWrapper: ReactWrapperProps;
@@ -18,16 +18,17 @@
     const reactWrapperFn = (await dynamicImportPromise)['default'];
     reactWrapper = reactWrapperFn(container);
     reactWrapper.render(props);
+    console.log('component mounted');
   });
 
   onDestroy(() => {
-    console.log('component destoyed');
     reactWrapper.destroy();
+    console.log('component destoyed');
   });
 
   afterUpdate(() => {
-    console.log('component afterUpdate');
     reactWrapper.render(props);
+    console.log('component updated (afterUpdate)');
   });
 </script>
 

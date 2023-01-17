@@ -39,14 +39,14 @@ module.exports = {
             name: 'app4',
             filename: 'remoteEntry.js',
             exposes: {
-                './Badge': './src/components/BadgeSvelte.tsx',
+                './Badge': './src/components/Badge',
             },
             library: {
                 type: 'var',
                 name: 'app4'
             },
             shared: {
-                "react": { singleton: true, eager: true },
+                // "react": { singleton: true, eager: true },
                 // "react-dom": { singleton: true, requiredVersion: '18.2.0', eager: true }
             },
         }),

@@ -1,5 +1,4 @@
-import React from 'react';
-import wrapper from './WrapperForSvelte';
+import wrapper from '../WrapperForSvelte';
 import { Badge } from './Badge';
 
 // @ts-ignore
