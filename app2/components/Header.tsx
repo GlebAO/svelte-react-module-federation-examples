@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const Header = () => {
+export const Header = ({ subtitle, children }) => {
   return (
     <div
       style={{
@@ -10,7 +10,9 @@ export const Header = () => {
         padding: '1em',
       }}
     >
-      Header hosted in APP 2
+      Header hosted in APP 2 3456779
+      {children}
+      <p>{subtitle}</p>
     </div>
   );
 };

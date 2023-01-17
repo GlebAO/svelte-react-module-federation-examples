@@ -25,7 +25,7 @@ export default function Home() {
         <h1>App 3 home page</h1>
         <hr />
         <h3>Component imported from App2</h3>
-        <Header />
+        <Header subtitle={'Subtitle'} />
         <hr />
         <h3>Index page imported from App2</h3>
         <Link href='/indexOfApp2'>App 2 homepage</Link>
@@ -33,4 +33,12 @@ export default function Home() {
       </main>
     </>
   );
+}
+
+export async function getServerSideProps(ctx) {
+  return {
+    props: {
+      id: Math.random(),
+    },
+  };
 }

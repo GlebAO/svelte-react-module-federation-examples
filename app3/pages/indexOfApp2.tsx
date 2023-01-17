@@ -6,6 +6,7 @@ const InfoPage = dynamic(
   () =>
     // @TODO use @module-federation/typescript
     import('app2/pages/index'),
+  { ssr: true },
 ) as NextPage;
 
 // InfoPage.getInitialProps = async (ctx: NextPageContext) => {
