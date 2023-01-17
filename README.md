@@ -1,7 +1,7 @@
 # Example of implementing microfrontends with Webpack module federation | Next.js SSR support | Importing React components to Svelte
 ---
 ## About
-This repo contains two apps built with **Next.js 12.3.4** and **React 17.0.2**.
+This repo contains two apps built with **Next.js 12.3.4** and **React 17.0.2**. (You can upgrade to latest of you want)
 
 With help of [Webpack 5 Module Federation](https://www.npmjs.com/package/module-federation-plugin) plugin which used in package [Module Federation For Next.js](https://www.npmjs.com/package/@module-federation/nextjs-mf) **App2** exposes component Header and all pages. **App3** takes App 2's remote container and we can import shared modules from App 2.
 
