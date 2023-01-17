@@ -1,8 +1,8 @@
 # Examples of implementing microfrontends with Module Federation (Webpack, Vite) with libraries: Svelte, React, Next.js
 ---
-1. app1 - Svelte 
+1. app1 - Svelte + Vite
 2. app2, app3 - Next.js
-3. app4 - React
+3. app4 - React + Webpack
 ---
 ## 1. Importing components from App4(React + Webpack) to App1(Svelte + Vite)
 App1 is host app. It takes remote container from app4. You can see configuration in `app1/vite.config.js`
