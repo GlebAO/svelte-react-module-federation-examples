@@ -27,8 +27,10 @@
   });
 
   afterUpdate(() => {
-    reactWrapper.render(props);
-    console.log('component updated (afterUpdate)');
+    if (reactWrapper) {
+      reactWrapper.render(props);
+      console.log('component updated (afterUpdate)');
+    }
   });
 </script>
 
