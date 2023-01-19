@@ -1,21 +1,26 @@
 const path = require('path');
 const TerserPlugin = require("terser-webpack-plugin");
-const { ModuleFederationPlugin } = require('webpack').container;
+// const { ModuleFederationPlugin } = require('webpack').container;
+const {UniversalFederationPlugin} = require("@module-federation/node");
 
 const prod = process.env.NODE_ENV === 'production';
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
+const isServer = Boolean(process.env.SERVER);
+
 module.exports = {
+    watch: true,
+    target:  isServer ? false : "web",
     mode: prod ? 'production' : 'development',
     entry: './src/index.tsx',
     output: {
         filename: 'main.js',
-        publicPath: 'auto',
-        path: path.join(__dirname, 'dist'),
+        publicPath: 'http://localhost:3004/',
+        path: path.join(__dirname, `dist/${isServer ? 'ssr' : 'chunks'}`),
         clean: true,
-        scriptType: 'text/javascript'
+        scriptType: 'text/javascript',
     },
     module: {
         rules: [
@@ -35,16 +40,19 @@ module.exports = {
     },
     devtool: prod ? undefined : 'source-map',
     plugins: [
-        new ModuleFederationPlugin({
+        new UniversalFederationPlugin({
             name: 'app4',
+            isServer: isServer,
             filename: 'remoteEntry.js',
             exposes: {
-                './Badge': './src/components/Badge',
+                './BadgeReact': './src/components/Badge/BadgeReact',
+                './BadgeSvelte': './src/components/Badge/BadgeSvelte',
             },
             library: {
-                type: 'var',
+                type: isServer ? 'commonjs-module' : 'var',
                 name: 'app4'
             },
+            // library: {type: 'commonjs-module'}, // for server
             shared: {
                 // "react": { singleton: true, eager: true },
                 // "react-dom": { singleton: true, requiredVersion: '18.2.0', eager: true }
@@ -55,12 +63,13 @@ module.exports = {
         }),
         new MiniCssExtractPlugin(),
     ],
-    experiments: {
-        outputModule: true,
-    },
+    // experiments: {
+    //     outputModule: true,
+    // },
     devServer: {
         static: {
             directory: path.join(__dirname, 'dist'),
+            // publicPath: isServer ? '/ssr' : '/chunks',
         },
         compress: true,
         port: 3004,
