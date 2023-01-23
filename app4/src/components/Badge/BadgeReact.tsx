@@ -6,7 +6,7 @@ export interface BadgeProps {
 
 const styles = {
   color: 'red',
-  padding: '20px',
+  padding: '4px 6px',
   border: '3px solid',
   backgroundColor: '#f0f0f0',
   borderRadius: '10px',
@@ -15,11 +15,7 @@ const styles = {
 };
 
 const BadgeReact = ({ text }: BadgeProps) => {
-  return (
-    <div style={styles}>
-      <p>BBBB {text}</p>
-    </div>
-  );
+  return <div style={styles}>{text}</div>;
 };
 
 export default BadgeReact;
