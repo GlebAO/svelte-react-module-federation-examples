@@ -12,8 +12,8 @@ const nextConfig = {
         name: 'app3',
         filename: 'static/chunks/remoteEntry.js',
         remotes: {
-          app2: `app2@http://localhost:3002/_next/static/${isServer ? 'ssr' : 'chunks'}/remoteEntry.js`, // when app starts it use ssr path
-          site: `site@https://localhost:443/_next/static/${isServer ? 'ssr' : 'chunks'}/remoteEntry.js` // when app starts it use ssr path
+          app2: `app2@http://localhost:3002/_next/static/${isServer ? 'ssr' : 'chunks'}/remoteEntry.js`,
+          app4: `app4@http://localhost:3004/${isServer ? 'ssr' : 'chunks'}/remoteEntry.js`
         },
         exposes: {},
         shared: {},

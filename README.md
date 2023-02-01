@@ -21,6 +21,10 @@ We import our Badge component in `app4/src/App.svelte`.
 We write wrapper `app4/src/lib/WrapperReactSvelte.svelte` which mounts remote module to DOM and 
 envoke render and destroy methods in Svelte's lifecycle hooks. This makes our remote component reactive.
 
+In `app3` (Next.js host app)
+We import our Badge component in `app3/pages/index.tsx`.
+
+
 ### Getting Started
 - Install dependencies and run the App 1
 ```
@@ -33,10 +37,21 @@ yarn dev
 cd ..
 cd app4
 yarn 
+yarn build:dev
 yarn start
+```
+- Install dependencies and run the App 3
+```
+cd ..
+cd app3
+yarn 
+yarn dev
 ```
 - Open App 1 [http://localhost:3001/](http://localhost:3001/)
 You can see "Badge 12" from App4 on the page. Click on it and counter will encrease
+
+- Open App 3 [http://localhost:3003/](http://localhost:3003/)
+You can see "x2" red badge from App4 on the page.
 
 ---
 ## 2. Importing Next.js app to another Next.js app with @next-mf plugin

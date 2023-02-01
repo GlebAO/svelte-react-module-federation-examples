@@ -13,6 +13,14 @@ const Header = dynamic(
   },
 );
 
+const Badge = dynamic(
+  // @TODO try to use @module-federation/typescript
+  () => import('app4/BadgeReact'),
+  {
+    ssr: true,
+  },
+);
+
 export default function Home() {
   return (
     <>
@@ -30,6 +38,8 @@ export default function Home() {
         <h3>Index page imported from App2</h3>
         <Link href='/indexOfApp2'>App 2 homepage</Link>
         <hr />
+        <h3>Badge from app4</h3>
+        <Badge text='x2' />
       </main>
     </>
   );
